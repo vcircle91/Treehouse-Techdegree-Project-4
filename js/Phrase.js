@@ -9,7 +9,7 @@ class Phrase {
     // Generate the html to display a phrase
     addPhraseToDisplay() {
         // Create output variable to return later
-        let phraseToDisplay = '<div id="phrase" class="section">\n<ul>\n';
+        let phraseToDisplay = '';
         // Loop through every letter
         for(var i = 0; i < this.phrase.length; i++) {
             if (/\w/.test(this.phrase[i])) {
@@ -18,16 +18,22 @@ class Phrase {
                 phraseToDisplay += '<li class="space"> </li>\n';
             }
         }
-        phraseToDisplay += '</ul>\n</div>';
-        return phraseToDisplay;
+        document.querySelector('#phrase').firstElementChild.innerHTML = phraseToDisplay;
+        console.log(phraseToDisplay);
     }
     // Check if some selected letter is part of the phrase
     checkLetter(letter){
         return this.phrase.includes(letter.toLowerCase());
     }
+    // Show letter if it is a match
+    showMatchedLetter(letter){
+        this.letter = letter;
+        if (this.checkLetter(letter)) {
+            let allLetters = document.getElementsByClassName(`${this.letter}`);
+            console.log(allLetters);
+            for (let i = 0; i < allLetters.length; i++) {
+                allLetters[i].className = `show letter ${this.letter}`;
+            }
+        }
+    }
 }
-
-const phrase = new Phrase('Kika ist lieb');
-console.log(phrase.phrase);
-console.log(phrase.addPhraseToDisplay());
-console.log(phrase.checkLetter('K'));
