@@ -27,12 +27,11 @@ class Phrase {
     }
     // Show letter if it is a match
     showMatchedLetter(letter){
-        this.letter = letter;
         if (this.checkLetter(letter)) {
-            let allLetters = document.getElementsByClassName(`${this.letter}`);
+            let allLetters = document.getElementsByClassName(`${letter}`);
             console.log(allLetters);
             for (let i = 0; i < allLetters.length; i++) {
-                allLetters[i].className = `show letter ${this.letter}`;
+                allLetters[i].className = `show letter ${letter}`;
             }
         }
     }
