@@ -6,6 +6,7 @@ class Phrase {
     constructor(phrase) {
         this.phrase = phrase.toLowerCase();
     }
+    // Generate the html to display a phrase
     addPhraseToDisplay() {
         // Create output variable to return later
         let phraseToDisplay = '<div id="phrase" class="section">\n<ul>\n';
@@ -20,8 +21,13 @@ class Phrase {
         phraseToDisplay += '</ul>\n</div>';
         return phraseToDisplay;
     }
+    // Check if some selected letter is part of the phrase
+    checkLetter(letter){
+        return this.phrase.includes(letter.toLowerCase());
+    }
 }
 
 const phrase = new Phrase('Kika ist lieb');
 console.log(phrase.phrase);
 console.log(phrase.addPhraseToDisplay());
+console.log(phrase.checkLetter('K'));
