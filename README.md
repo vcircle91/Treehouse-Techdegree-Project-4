@@ -1,6 +1,6 @@
 # Phrase Hunter game
 ## Overview
-This is my work for Treehouse project 4 to wotk with object-orientated appraoches.
+This is my work for Treehouse project 4 which had the goal to practise object-orientated approaches.
  
 ## Keyboard usable
 Event listener has been added for the onkeypress event so that pressing a physical keyboard button results in the handleInteraction() method being called for the associated onscreen keyboard button.
