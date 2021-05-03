@@ -31,21 +31,27 @@ class Game {
         e.target.disabled = true;
     }
     removeLife() {
-        this.missed += 1
+        this.missed += 1;
         if (this.missed > 4){
-            gameOver();
+            this.gameOver('lose');
         } else {
             document.querySelector('.tries').remove();
         }
     }
     checkForWin() {
-        if (document.querySelector('#phrase').firstElementChild.innerHTML.includes('hide')) {
-            console.log('No win');
-        } else {
-            console.log('win')
+        if (!document.querySelector('#phrase').firstElementChild.innerHTML.includes('hide')) {
+            this.gameOver('win')
         }
     }
-    gameOver() {
-
+    gameOver(winOrLose) {
+        this.winOrLose = winOrLose;
+        if (this.winOrLose === "win") {
+            document.querySelector('#overlay').classList = 'win';  
+            document.querySelector('#game-over-message').innerHTML = 'Great job, you won!';
+        } else {
+            document.querySelector('#overlay').classList = 'lose';  
+            document.querySelector('#game-over-message').innerHTML = 'Better luck next time!';
+        }
+        document.querySelector('#overlay').style.display = "inherit";  
     }
 }
