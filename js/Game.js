@@ -39,7 +39,11 @@ class Game {
         }
     }
     checkForWin() {
-
+        if (document.querySelector('#phrase').firstElementChild.innerHTML.includes('hide')) {
+            console.log('No win');
+        } else {
+            console.log('win')
+        }
     }
     gameOver() {
 
