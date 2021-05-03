@@ -20,17 +20,21 @@ class Game {
         return this.phrases[rnd];
     }
     handleInteraction(e) {
+        // Disable button
         e.target.disabled = true;
+        // If letter is included process it
         if (this.activePhrase.toLowerCase().includes(e.target.innerHTML)) {
             e.target.classList.add("chosen");
             phrase.showMatchedLetter(e.target.innerHTML);
             this.checkForWin();
+        // If letter not included mark him as wrong and remove life
         } else {
             e.target.classList.add("wrong");
             this.removeLife();
         }
     }
     removeLife() {
+        // Remove one life and if no lifes are left initiate game over
         this.missed += 1;
         if (this.missed > 4){
             this.gameOver('lose');
@@ -39,6 +43,7 @@ class Game {
         }
     }
     checkForWin() {
+        // If nothing to hide anymore the user won
         if (!document.querySelector('#phrase').firstElementChild.innerHTML.includes('hide')) {
             this.gameOver('win')
         }
