@@ -5,14 +5,13 @@
 class Game {
     constructor() {
         this.missed = 0;
-        this.phrases = ['Hello coder', 'Have a coffee', 'Work hard', 'Treehouse is great', 'You made it'];
+        this.phrases = [new Phrase('Hello coder'), new Phrase('Have a coffee'), new Phrase('Work hard'), new Phrase('Treehouse is great'), new Phrase('You made it')]
         this.activePhrase = null;
     }
     startGame() {
         document.querySelector('#overlay').style.display = "none";  
         this.activePhrase = this.getRandomPhrase();
-        phrase = new Phrase(this.activePhrase);
-        phrase.addPhraseToDisplay();
+        this.activePhrase.addPhraseToDisplay();
     }
     getRandomPhrase() {
         // Create random number to pick phrase
@@ -23,9 +22,9 @@ class Game {
         // Disable button
         e.target.disabled = true;
         // If letter is included process it
-        if (this.activePhrase.toLowerCase().includes(e.target.innerHTML)) {
+        if (this.activePhrase.phrase.toLowerCase().includes(e.target.innerHTML)) {
             e.target.classList.add("chosen");
-            phrase.showMatchedLetter(e.target.innerHTML);
+            this.activePhrase.showMatchedLetter(e.target.innerHTML);
             this.checkForWin();
         // If letter not included mark him as wrong and remove life
         } else {
