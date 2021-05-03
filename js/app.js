@@ -14,3 +14,5 @@ for (let i = 0; i < buttons.length; i++) {
         game.handleInteraction(e);
     });
 }
+
+

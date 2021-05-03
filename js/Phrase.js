@@ -19,7 +19,6 @@ class Phrase {
             }
         }
         document.querySelector('#phrase').firstElementChild.innerHTML = phraseToDisplay;
-        console.log(phraseToDisplay);
     }
     // Check if some selected letter is part of the phrase
     checkLetter(letter){
@@ -29,7 +28,6 @@ class Phrase {
     showMatchedLetter(letter){
         if (this.checkLetter(letter)) {
             let allLetters = document.getElementsByClassName(`${letter}`);
-            console.log(allLetters);
             for (let i = 0; i < allLetters.length; i++) {
                 allLetters[i].className = `show letter ${letter}`;
             }
