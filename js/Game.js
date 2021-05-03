@@ -23,9 +23,25 @@ class Game {
         if (this.activePhrase.toLowerCase().includes(e.target.innerHTML)) {
             e.target.classList.add("chosen");
             phrase.showMatchedLetter(e.target.innerHTML);
+            this.checkForWin();
         } else {
             e.target.classList.add("wrong");
+            this.removeLife();
         }
         e.target.disabled = true;
+    }
+    removeLife() {
+        this.missed += 1
+        if (this.missed > 4){
+            gameOver();
+        } else {
+            document.querySelector('.tries').remove();
+        }
+    }
+    checkForWin() {
+
+    }
+    gameOver() {
+
     }
 }
